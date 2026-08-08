@@ -28,7 +28,7 @@ public:
                 }
             }
             nums.at(zero) = 1;
-            int product = 1;
+            product = 1;
             for (auto it : nums) {
                 product = product * it;
             }
@@ -40,3 +40,13 @@ public:
         return {};
     }
 };
+
+
+// class Solution {
+// public:
+//     vector<int> productExceptSelf(vector<int>& nums) {
+
+        
+
+//     }
+// };
