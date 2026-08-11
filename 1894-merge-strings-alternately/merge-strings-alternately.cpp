@@ -15,7 +15,7 @@ public:
             j++;
         }
 
-        // append leftover characters from whichever string is longer
+
         while (i < len1) {
             merged.push_back(word1[i]);
             i++;
