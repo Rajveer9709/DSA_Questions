@@ -15,7 +15,6 @@ public:
             j++;
         }
 
-
         while (i < len1) {
             merged.push_back(word1[i]);
             i++;
