@@ -37,6 +37,7 @@ public:
                 }
             } else {
                 left = right;
+                count =0;
             }
         }
         return 0;
