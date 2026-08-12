@@ -28,9 +28,9 @@ public:
         vector<int> result;
 
         // build frequency map from the shorter array
-        // if (nums1.size() > nums2.size()) {
-        //     return intersect(nums2, nums1);  // swap so nums1 is always shorter
-        // }
+        if (nums1.size() > nums2.size()) {
+            return intersect(nums2, nums1);  // swap so nums1 is always shorter
+        }
 
         unordered_map<int, int> mpp;
         for (int x : nums1) {
