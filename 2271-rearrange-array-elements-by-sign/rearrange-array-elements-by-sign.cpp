@@ -27,18 +27,28 @@
 class Solution {
 public:
     vector<int> rearrangeArray(vector<int>& nums) {
-    vector<int> result(nums.size());  
-    int i = 0, j = 1;
+        vector<int> result(nums.size());
+        int i = 0, j = 1;
 
-    for (int it : nums) {
-        if (it > 0) {
-            result[i] = it;  
-            i += 2;
-        } else {
-            result[j] = it;
-            j += 2;
+        for (int it : nums) {
+            if (it > 0) {
+                result[i] = it;
+                i += 2;
+            } else {
+                result[j] = it;
+                j += 2;
+            }
         }
+        return result;
     }
-    return result;
-}
 };
+
+
+// class Solution {
+// public:
+//     vector<int> rearrangeArray(vector<int>& nums) {
+        
+
+
+//     }
+// };
