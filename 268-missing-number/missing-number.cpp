@@ -24,44 +24,44 @@
 //     }
 // };
 
-class Solution {
-public:
-    int missingNumber(vector<int>& nums) {
-
-        int n = nums.size();
-        unordered_map<int, int> mp;
-
-        for (auto it : nums) {
-            mp[it]++;
-        }
-
-        for (int i = 0; i <= n; i++) {           // check 0 to n INCLUSIVE
-            if (mp.find(i) == mp.end()) {          // i is NOT in the map
-                return i;                            // found the missing
-            
-            }
-        }
-
-        return -1;  // won't be reached for valid input
-    }
-};
-
 // class Solution {
 // public:
 //     int missingNumber(vector<int>& nums) {
 
 //         int n = nums.size();
-//         int real_sum = n*(n+1)/2;
-//         int obv_sum = 0;
+//         unordered_map<int, int> mp;
 
-//         for(int i=0; i<n; i++){
-//             obv_sum = obv_sum + nums[i];
+//         for (auto it : nums) {
+//             mp[it]++;
 //         }
 
-//         return real_sum - obv_sum;
+//         for (int i = 0; i <= n; i++) {           // check 0 to n INCLUSIVE
+//             if (mp.find(i) == mp.end()) {          // i is NOT in the map
+//                 return i;                            // found the missing
+            
+//             }
+//         }
 
+//         return -1;  // won't be reached for valid input
 //     }
 // };
+
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+
+        int n = nums.size();
+        int real_sum = n*(n+1)/2;
+        int obv_sum = 0;
+
+        for(int i=0; i<n; i++){
+            obv_sum = obv_sum + nums[i];
+        }
+
+        return real_sum - obv_sum;
+
+    }
+};
 
 // class Solution {
 // public:
