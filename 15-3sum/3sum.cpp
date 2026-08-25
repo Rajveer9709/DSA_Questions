@@ -50,40 +50,70 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     vector<vector<int>> threeSum(vector<int>& nums) {
+
+//         vector<vector<int>> ans;
+//         sort(nums.begin(), nums.end());
+//         int n = nums.size();
+
+//         for (int i = 0; i < n; i++) {
+//             if (i > 0 && nums[i] == nums[i - 1])
+//                 continue;
+//             int j = i + 1;
+//             int k = n - 1;
+
+//             while (j < k) {
+//                 int sum = nums[i] + nums[j] + nums[k];
+//                 if (sum > 0) {
+//                     k--;
+
+//                 } else if (sum < 0) {
+//                     j++;
+
+//                 } else {
+//                     vector<int> temp = {nums[i], nums[j], nums[k]};
+//                     ans.push_back(temp);
+//                     j++;
+//                     k--;
+//                     while (j < k && nums[j] == nums[j - 1])
+//                         j++;
+//                     while (j < k && nums[k] == nums[k + 1])
+//                         k--;
+//                 }
+//             }
+//         }
+//         return ans;
+//     }
+// };
+
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-
-        vector<vector<int>> ans;
+        vector<vector<int>> res;
         sort(nums.begin(), nums.end());
         int n = nums.size();
+        int i = 0;
 
-        for (int i = 0; i < n; i++) {
-            if (i > 0 && nums[i] == nums[i - 1])
-                continue;
-            int j = i + 1;
-            int k = n - 1;
+        for (i = 0; i < n - 2; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+                 if (nums[i] > 0) break;
+                int k = i + 1, target = 0 - nums[i], j = n - 1;
 
-            while (j < k) {
-                int sum = nums[i] + nums[j] + nums[k];
-                if (sum > 0) {
-                    k--;
-
-                } else if (sum < 0) {
-                    j++;
-
+            while (k < j) {
+                if (nums[k] + nums[j] == target) {
+                    res.push_back({nums[i], nums[j], nums[k]});
+                    k++, j--;
+                     while (k < j and nums[k] == nums[k - 1]) k++;
+                     while (k < j and nums[j] == nums[j + 1]) j--;
+                } else if (nums[k] + nums[j] < target) {                  
+                        k++;
                 } else {
-                    vector<int> temp = {nums[i], nums[j], nums[k]};
-                    ans.push_back(temp);
-                    j++;
-                    k--;
-                    while (j < k && nums[j] == nums[j - 1])
-                        j++;
-                    while (j < k && nums[k] == nums[k + 1])
-                        k--;
+                        j--;
                 }
             }
         }
-        return ans;
+        return res;
     }
 };
